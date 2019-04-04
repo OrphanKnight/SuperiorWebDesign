@@ -1,0 +1,504 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
+:root {
+  --background: rgba(0, 214, 170, .85);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;
+    background: #232323;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+}
+
+.cont {
+  height: 200vh;
+  background-image: url(//unsplash.it/1000/1000);
+  background-color: #333;
+  background-blend-mode: multiply;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+/* navigation styles start here */
+header {
+  background: var(--background);
+  text-align: center;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* changed this from the tutorial video to
+   allow it to gain focus, making it tabbable */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(173, 216, 230, 0.75);
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  transition: -webkit-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.nav-toggle:checked ~ nav {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  .logo {
+    grid-column: 2 / 3;
+  }
+
+  nav {
+    /* the following lines are not from my video, but add Edge support */
+    position: relative;
+    text-align: left;
+    transition: none;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    background: none;
+    top: initial;
+    left: initial;
+    /* end Edge support stuff */
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
+    transition: -webkit-transform ease-in-out 250ms;
+    transition: transform ease-in-out 250ms;
+    transition: transform ease-in-out 250ms, -webkit-transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+/*=============================================Diagnol Divs================= */
+.b1 {
+  background: #b1ecc6;
+  height: 5vh;
+  width: 100vw;
+  position: relative;
+}
+.b1:after {
+  z-index: 10;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: "";
+  height: 0;
+  width: 0;
+  border-right: 100vw solid #b1ecc6;
+  border-bottom: 3vw solid transparent;
+  border-top: 0px solid transparent;
+  overflow: hidden;
+}
+
+.b2 {
+  background: #b1ecc6;
+  height: 5vh;
+  width: 100vw;
+  position: relative;
+}
+.b2:before {
+  z-index: 10;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  content: "";
+  height: 0;
+  width: 0;
+  border-left: 100vw solid #b1ecc6;
+  border-top: 3vw solid transparent;
+  border-bottom: 0px solid transparent;
+  overflow: hidden;
+}
+
+.b3 {
+  background: #b1ecc6;
+  height: 5vh;
+  width: 100vw;
+  position: relative;
+}
+.b3:before {
+  z-index: 10;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  content: "";
+  height: 0;
+  width: 0;
+  border-left: 100vw solid #b1ecc6;
+  border-top: 20vw solid transparent;
+  border-bottom: 0px solid transparent;
+  overflow: hidden;
+}
+
+/*==========================================Second Box with green border and text========================*/
+.home-hero {
+	background-image: url(../img/hero-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	padding: 10em 0;
+	color: #FFF;
+}
+
+.home-about-textbox {
+	background-color: #232323;
+	padding: 4em;
+	width: 100vw;
+	outline: 2px solid #00ff6c;
+	outline-offset: -2.5em;
+	color: #FFF;
+	position: relative;
+    z-index: 11;
+}
+.home-about-textbox h1 {
+	color: #00ff6c;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: .75em;
+	background: #232323;
+	padding: 0 .145em;
+    font-size: 3em;
+}
+
+.home-about-textbox p {
+	margin-top: 2em;
+}
+
+@media (min-width: 25rem) {
+	h1 {
+		font-size: 2rem;
+	}
+
+	.home-about-textbox {
+		padding: 5.5em;
+	}
+
+	.home-about-textbox h1 {
+		top: .6em;
+		padding: 0 .325em;
+	}
+}
+
+/* Parallax
+=================== */
+
+.container {
+	width: 95%;
+	max-width: 70em;
+}
+
+.parallax-window {
+    min-height: 30em;
+    width: 100%;
+    background: transparent;
+    z-index: 12;
+}
+/*=====================================================Tech Feed==============================*/
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+img {
+  max-width:100%;
+}
+
+
+.card-grid {
+  width:100%;
+  background: #171717;
+}
+.card-grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.card-wrap {
+  float:left;
+  width:100%;
+  padding:5px;
+  background-color: #171717;
+}
+@media (min-width: 500px) {
+  .card-wrap {
+    width:50%;
+  }
+}
+@media (min-width: 720px) {
+  .card-wrap {
+    width:25%;
+  }
+}
+
+
+.card {
+  background-color: white;
+  border-bottom:8px solid #00ff6c;
+}
+.card > div {
+  padding:0 1em;
+}
+
+/*=========================================================Footer==========================================*/
+footer {
+  all: unset;
+  background: #00897b;
+}
+
+.delayone {
+  -moz-animation-delay: .2s;
+  -webkit-animation-delay: .2s;
+}
+
+.delaytwo {
+  -moz-animation-delay: .4s;
+  -webkit-animation-delay: .4s;
+}
+
+.delaythree {
+  -moz-animation-delay: .6s;
+  -webkit-animation-delay: .6s;
+}
+
+.delayfour {
+  -moz-animation-delay: .8s;
+  -webkit-animation-delay: .8s;
+}
+
+.delayfive {
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+.delaysix {
+  -moz-animation-delay: 1.4s;
+  -webkit-animation-delay: 1.4s;
+}
+
+
+.icon {
+  position: absolute;
+  width: 100%;
+  margin-top: 30%;
+  display: block;
+  color: #004d40;
+  font-size: 3em;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#circ {
+  max-width: 100%;
+  min-height: 200px;
+  width: 1280px;
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+}
+#circ ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 80px;
+  width: 100%;
+}
+#circ ul li {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  margin: 0 20px 20px 20px;
+  text-align: center;
+  background: #fff;
+  border: solid 8px #00897b;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+#circ ul li:hover {
+  border: solid 8px #004d40;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+  .icon {
+    position: relative;
+    margin-top: 30%;
+    color: #004d40;
+    font-size: 2em;
+    -webkit-transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  #circ ul li {
+    width: 80px;
+    height: 80px;
+    margin: 0 5px 5px 5px;
+  }
+  #circ ul li:hover .icon {
+    font-size: 2.5em;
+  }
+}
+@media only screen and (max-width: 690px) {=
+
+  #circ ul li {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+  }
+  #circ ul li:hover {
+    border: none;
+  }
+}
+
+.panel{
+    margin: 0;
+    padding: 0;
+}
+
+#reset{
+    all: unset;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent
+}
