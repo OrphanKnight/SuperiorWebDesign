@@ -253,7 +253,9 @@
 <div class="card-grid">
   <div class="card-wrap">
     <div class="card">
-      <?php  echo "<img src='" . $images[0] . "'  width='100%' height='100%%' class='imageleft'/>"; ?>
+       
+        
+        <?php  echo "<a  href='https://www.yahoo.com'> <img src='" . $images[0] . "'  width='100%' height='100%%' class='imageleft'/> </a>"; ?>
       <div>
         <h4>Tech News!</h4>
         <p><?php echo $titles[0]; ?></p>  
@@ -262,7 +264,7 @@
   </div>
   <div class="card-wrap">
     <div class="card">
-      <?php  echo "<img src='" . $images[1] . "'  width='100%' height='100%' class='imageleft'/>"; ?>
+      <?php  echo "<a  href='https://www.google.com'> <img src='" . $images[1] . "'  width='100%' height='100%%' class='imageleft'/> </a>"; ?>
       <div>
         <h4>Tech News!</h4>
         <p><?php echo $titles[1]; ?></p> 
@@ -271,7 +273,7 @@
   </div>
   <div class="card-wrap">
     <div class="card">
-      <?php  echo "<img src='" . $images[2] . "'  width='100%' height='100%%' class='imageleft'/>"; ?>
+      <?php  echo "<a  href='https://www.yahoo.com'> <img src='" . $images[2] . "'  width='100%' height='100%%' class='imageleft'/> </a>"; ?>
       <div>
         <h4>Tech News!</h4>
         <p><?php echo $titles[2]; ?></p> 
@@ -280,7 +282,7 @@
   </div>
   <div class="card-wrap">
     <div class="card">
-      <?php  echo "<img src='" . $images[3] . "'  width='100%' height='100%' class='imageleft'/>"; ?>
+      <?php  echo "<a  href='https://wired.com'> <img src='" . $images[3] . "'  width='100%' height='100%%' class='imageleft'/> </a>"; ?>
       <div>
         <h4>Tech News!</h4>
         <p><?php echo $titles[3]; ?></p> 
